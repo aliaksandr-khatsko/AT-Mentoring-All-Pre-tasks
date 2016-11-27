@@ -15,7 +15,7 @@ namespace CalculatorApp
             Boolean calcNeverStop = false;
             do
             {
-                Double firstNum = 0;
+                decimal firstNum = 0;
                 Boolean correctNumber1 = false;
                 do
                 {
@@ -23,7 +23,7 @@ namespace CalculatorApp
                     {
                         Console.WriteLine("Please, enter first number");
                         String firstNumberStr = Console.ReadLine();
-                        firstNum = Double.Parse(firstNumberStr);
+                        firstNum = decimal.Parse(firstNumberStr);
                         correctNumber1 = true;
                     }
                     catch (System.FormatException e)
@@ -66,7 +66,7 @@ namespace CalculatorApp
                 } while (correctOperator == false);
 
 
-                Double secondNum = 0;
+                decimal secondNum = 0;
                 Boolean correctNumber2 = false;
                 do
                 {
@@ -74,7 +74,7 @@ namespace CalculatorApp
                     {
                         Console.WriteLine("Please, enter second number");
                         String secondNumberStr = Console.ReadLine();
-                        secondNum = Double.Parse(secondNumberStr);
+                        secondNum = decimal.Parse(secondNumberStr);
                         correctNumber2 = true;
                     }
                     catch (System.FormatException ex)
@@ -86,7 +86,7 @@ namespace CalculatorApp
 
 
 
-                Double result = 0;
+                decimal result = 0;
                 switch (op)
                 {
                     case "+":
@@ -102,12 +102,12 @@ namespace CalculatorApp
                         Console.WriteLine("Result = " + result + "  (Press Enter to continue)");
                         break;
                     case "/":
-                        if (secondNum != 0)
+                        try
                         {
                             result = MathOperations.divide(firstNum, secondNum);
                             Console.WriteLine("Result = " + result + "  (Press Enter to continue)");
                         }
-                        else
+                        catch(DivideByZeroException ex)
                         {
                             Console.WriteLine("Division of {0} by zero is impossible. Please, press Enter and try again", firstNum);
                         }

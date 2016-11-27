@@ -8,22 +8,22 @@ namespace CalculatorApp
 {
     class MathOperations
     {
-        public static double add(double a, double b)
+        public static decimal add(decimal a, decimal b)
         {
             return a + b;
         }
 
-        public static double substract(double a, double b)
+        public static decimal substract(decimal a, decimal b)
         {
             return a - b;
         }
 
-        public static double multiply(double a, double b)
+        public static decimal multiply(decimal a, decimal b)
         {
             return a * b;
         }
 
-        public static double divide(double a, double b)
+        public static decimal divide(decimal a, decimal b)
         {
             return a / b;
         }
