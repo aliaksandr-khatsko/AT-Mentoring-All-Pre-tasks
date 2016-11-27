@@ -13,33 +13,31 @@ namespace SecondByLengthString
 
         {
 
-            message("first");
-            string firstLine = Console.ReadLine();
-            message("second");
-            string secondLine = Console.ReadLine();
-            message("third");
-            string thirdLine = Console.ReadLine();
-            message("forth");
-            string forthLine = Console.ReadLine();
-            message("fifth");
-            string fifthLine = Console.ReadLine();
-            string[] stringArray = { firstLine, secondLine, thirdLine, forthLine, fifthLine };
+            string[] stringArray = new string[5];
+            Console.WriteLine("Enter 5 sentences");
+            for (int i = 0; i < stringArray.Length; i++)
+            {
+                Console.Write("{0}st sentence: ", i + 1);
+                stringArray[i] = Console.ReadLine();
+            }
 
-            Array.Sort(stringArray);
+            string temp;
+            for (int i = 0; i < stringArray.Length - 1; i++)
+            {
+                for (int j = i + 1; j < stringArray.Length; j++)
+                {
+                    if (stringArray[i].Length > stringArray[j].Length)
+                    {
+                        temp = stringArray[i];
+                        stringArray[i] = stringArray[j];
+                        stringArray[j] = temp;
+                    }
+                }
+            }
 
-            Console.WriteLine("The following sentance is the second by length: " + stringArray[stringArray.Length - 2]);
-
+            Console.WriteLine("Second by legth sentece: {0}", stringArray[3]);
             Console.ReadLine();
 
         }
-
-
-        public static void message(string stringNumber)
-
-        {
-            Console.WriteLine("Enter your {0} sentance", stringNumber);
-        }
-
-
     }
 }
